@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<head>
+    <title>Dating Web Site</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Dayana Miyuki Suzuki">
+    <meta name="description" content="The Hong Kong University of Science and Technology - Dating Web Site - Part 3">
+    <meta name="keywords" content="HTML5,CSS3,JavaScript">
+    <style>
+        fieldset {
+            background-color:lightyellow; 
+            border:10px solid yellow; 
+            margin-bottom:10px; 
+            width:720px;
+        }
+        label {
+            width:180px; 
+            display:inline-block; 
+            vertical-align:top; 
+            text-align:right; 
+            padding:3px;
+        }
+        .width-auto {
+            width:auto;
+        }
+        .ta-center {
+            text-align:center; 
+            width:50px; 
+            height:20px; 
+            display:inline-block; 
+            vertical-align:top;
+        }
+        .bg-red {
+            background-color:red; 
+            color:#fff;
+        }
+        .bg-purple {
+            background-color:purple; 
+            color:#fff;
+        }
+        textarea {
+            width:360px; 
+            height:50px;
+        }
+        label:hover, input:hover, select:hover, 
+        legend:hover, textarea:hover {
+            font-size:20px;
+        }
+        input[type="color"]:hover, 
+        input[type="checkbox"]:hover, 
+        input[type="radio"]:hover {
+                -ms-transform: scale(1.5, 1.5); /* IE 9 */
+            -webkit-transform: scale(1.5, 1.5); /* Safari */
+                    transform: scale(1.5, 1.5);
+        }
+        label.height:hover ~ label.height, 
+        label.salary:hover ~ label.salary, 
+        div.range-height:hover > label.height, 
+        div.range-salary:hover > label.salary {
+                    font-size:20px; 
+                -ms-transform: scale(1.2, 1.2);
+            -webkit-transform: scale(1.2, 1.2);
+                    transform: scale(1.2, 1.2);
+        }
+    </style>
+    <script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+</head>
+<body>
+    <h1>Please Enter Your Details For Our Dating Website!</h1>
+
+    <form name="datingform" method="post" action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data">
+        <!-- USER PICTURE -->
+        <fieldset>
+            <legend>Your Face</legend>
+
+            <label for="avatar">Your image:</label>
+            <input type="file" id="avatar" name="avatar" required>
+            <br>
+
+            <!-- preview of the image uploaded by the user -->
+            <label for="preview">Image preview:</label>
+            <img id="preview" width="15%">
+        </fieldset>
+
+        <!-- GENERAL INFO -->
+        <fieldset>
+            <legend>Your General Details</legend>
+
+            <label for="fullname">Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your full name" maxLength="100" required>
+            <br>
+
+            <!-- type radio -->
+            <label for="usergender">Gender:</label>
+            <input type="radio" id="male" name="usergender" value="male" required>
+            <label for="male" class="width-auto">Male</label>
+            <input type="radio" id="female" name="usergender" value="female">
+            <label for="female" class="width-auto">Female</label>
+            <br>
+
+            <label for="userage">Age:</label>
+            <input type="number" id="userage" name="userage" min="0" max="120" step="1" value="18" required>
+            <br>
+
+            <label for="bday">Date of birth:</label>
+            <input type="date" id="bday" name="bday">
+            <br>
+
+            <label for="favcolor">Favorite color:</label>
+            <input type="color" id="favcolor" name="favcolor">
+            <br>
+
+            <label for="country">Which country:</label>
+            <select name="country">
+                <option></option>
+                <option value="argentina">Argentina</option>
+                <option value="brazil">Brazil</option>
+                <option value="canada">Canada</option>
+                <option value="mexico">Mexico</option>
+                <option value="usa">USA</option>
+            </select>
+        </fieldset>
+
+        <!-- HEIGHT AND SALARY INDICATORS -->
+        <fieldset>
+            <legend>Your Indicators</legend>
+
+            <div class="range-height">
+            <label for="height">Height:</label>
+            <label for="height" class="ta-center bg-red height">Short</label>
+            <input type="range" id="height" name="height" min="0" max="100" step="5" value="50">
+            <label for="height" class="ta-center bg-purple height">Tall</label>
+            <br>
+            </div>
+
+            <div class="range-salary">
+            <label for="salary">Salary:</label>
+            <label for="salary" class="ta-center bg-red salary">Poor</label>
+            <input type="range" id="salary" name="salary" min="0" max="100" step="5" value="50">
+            <label for="salary" class="ta-center bg-purple salary">Rich</label>
+            </div>
+        </fieldset>
+
+        <!-- CONTACT INFO -->
+        <fieldset>
+            <legend>Your Contact Information</legend>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+
+            <label for="mobile">Mobile:</label>
+            <input type="tel" id="mobile" name="mobile">
+            <br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address"></textarea>
+            <br>
+
+            <!-- type checkbox -->
+            <label for="contact">Method to contact you:</label>
+            <input type="checkbox" id="contact-email" name="contact" value="email">
+            <label for="contact-email" class="width-auto">Email</label>
+            <input type="checkbox" id="contact-whatsapp" name="contact" value="whatsapp">
+            <label for="contact-whatsapp" class="width-auto">Whatsapp</label>
+            <input type="checkbox" id="contact-chat" name="contact" value="chat">
+            <label for="contact-chat" class="width-auto">In-app chat</label>
+        </fieldset>
+        <input type="submit" name="Submit" value="Submit">
+    </form>
+</body>
+</html>
