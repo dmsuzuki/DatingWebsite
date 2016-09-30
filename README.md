@@ -1,6 +1,5 @@
 # Dating Web Site
 
-### Tecnical Overview
 The web page is constructed using HTML and CSS. 
 Most of the HTML content are form elements. 
 All the style parameters are handled in a style section, at the top of the same page. 
